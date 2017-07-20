@@ -8,7 +8,7 @@ var rename = require('gulp-rename');
 gulp.task('sass', function () {
   return gulp.src(config.source.sassMain)
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest(config.dest.css);
+    .pipe(gulp.dest(config.dest.css));
 });
 
 gulp.task('sass:watch', function () {

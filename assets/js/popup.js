@@ -13,6 +13,7 @@ function onStateChange( evt ) {
 }
 
 function initAccessibility() {
+  document.body.className += " slack-accessible";
   var inputTextElem = document.querySelectorAll(".ql-editor");
   var i;
   for( i = 0; i < inputTextElem.length; i++ ) {
@@ -24,10 +25,12 @@ function initAccessibility() {
     inputTextElem[i].addEventListener("keydown", onKeyPress);
   }
 
-  document.querySelectorAll(".ql-editor")[0].addEventListener( "blur", function( evt ) {
-    evt.stopImmediatePropagation();
-    console.log( "tabbed out" );
-  })
+  if( inputTextElem.length ) {
+    inputTextElem[0].addEventListener( "blur", function( evt ) {
+      evt.stopImmediatePropagation();
+      console.log( "tabbed out" );
+    });
+  }
 }
 
 function onKeyPress( evt ) {
@@ -35,7 +38,7 @@ function onKeyPress( evt ) {
   if( evt.keyCode === 9 ) {
     //9 === tab
     var bannerElem = document.getElementById( 'notifications_banner' );
-    console.log( bannerElem );
+
     evt.target.blur();
     if( bannerElem.style.display === "block" ) {
 
@@ -43,4 +46,8 @@ function onKeyPress( evt ) {
       bannerElem.focus();
     }
   }
+}
+
+function testHello( name ) {
+  return "hello " + name;
 }

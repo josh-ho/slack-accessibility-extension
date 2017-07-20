@@ -15,7 +15,7 @@
     {
       "matches": ["http://*/*", "https://*/*"],
       "js": ["/assets/js/popup.js"],
-      "css" : ["/assets/css/slack.css"],
+      "css" : ["/assets/css/index.css"],
       "run_at" : "document_end"
     }
   ]
